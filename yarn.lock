@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@types/node@^9.4.1":
+  version "9.4.1"
+  resolved "http://r.npm.sankuai.com/@types/node/download/@types/node-9.4.1.tgz#0f636f7837e15d2d73a7f6f3ea0e322eb2a5ab65"
+
+"@types/vue@^2.0.0":
+  version "2.0.0"
+  resolved "http://r.npm.sankuai.com/@types/vue/download/@types/vue-2.0.0.tgz#ec77b3d89591deb9ca5cb052368aa9c32be088e7"
+  dependencies:
+    vue "*"
+
 abbrev@1:
   version "1.1.1"
   resolved "http://r.npm.sankuai.com/abbrev/download/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -5647,7 +5657,7 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "http://r.npm.sankuai.com/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue@^2.5.13:
+vue@*, vue@^2.5.13:
   version "2.5.13"
   resolved "http://r.npm.sankuai.com/vue/download/vue-2.5.13.tgz#95bd31e20efcf7a7f39239c9aa6787ce8cf578e1"
 

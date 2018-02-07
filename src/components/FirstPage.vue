@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <router-link to="/">Back to Home</router-link>
+    <img :src="img" >
   </div>
 </template>
 
@@ -9,11 +10,14 @@
 import Component from "vue-class-component";
 import Vue from "vue";
 
+const img = require("@/assets/images/logo.png");
+
 @Component
 export default class FirstPage extends Vue {
   data() {
     return {
-      msg: "This is your first page"
+      msg: "This is your first page",
+      img
     };
   }
 }
