@@ -28,19 +28,10 @@ const getPlugins = function(morePlugins) {
       manifest: require("../.dll/manifest.json")
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: "app"
+      name: "manifest"
     }),
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, "../dist/index.html"),
-      template: "src/index.html",
-      inject: true,
-      vendersName: vendersConfig.venders.js,
-      meta: "",
-      htmlDom: "",
-      state: ""
-    }),
-    new HtmlWebpackPlugin({
-      filename: path.resolve(__dirname, "../dist/index.ejs"),
       template: "src/index.html",
       inject: true,
       vendersName: vendersConfig.venders.js,
@@ -69,13 +60,13 @@ const getRules = function(moreRules) {
       options: vueLoaderConfig
     },
     {
-      test: /\.jsx?$/,
+      test: /\.js$/,
       loader: "babel-loader",
       exclude: /node_modules/
     },
     {
-      test: /\.tsx?$/,
-      loader: "babel-loader!ts-loader",
+      test: /\.ts$/,
+      loader: "ts-loader",
       exclude: /node_modules/,
       options: {
         appendTsSuffixTo: [/\.vue$/]
@@ -91,7 +82,7 @@ const getRules = function(moreRules) {
       loader: "url-loader",
       options: {
         limit: 10000,
-        name: utils.assetsPath("img/[name].[hash:7].[ext]")
+        name: "img/[name].[hash:7].[ext]"
       }
     },
     {
@@ -133,7 +124,7 @@ export default function(morePlugins, moreRules) {
       extensions: [".json", ".js", ".jsx", ".ts", ".tsx", ".css", ".less", ".scss", ".vue"],
       alias: {
         vue$: "vue/dist/vue.esm.js",
-        "@": resolve("src")
+        "@": path.join(__dirname, "../src")
       },
       modules: ["node_modules", path.resolve(__dirname, "../src")]
     },
