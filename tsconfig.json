@@ -11,6 +11,10 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "typeRoots": ["node_modules/@types", "typings"],
+    "baseUrl": "./src",
+    "paths": {
+      "@": ["./src"]
+    },
     "allowJs": false
   },
   "include": ["./src/**/*"],
