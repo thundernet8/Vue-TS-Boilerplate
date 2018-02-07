@@ -18,14 +18,19 @@
     "lint:style": "stylelint \"src/**/*.less\" --syntax less",
     "lint-staged": "lint-staged",
     "lint-staged:ts": "tslint --fix -c .tslintrc.json",
-    "lint-staged:style": "stylelint --syntax less"
+    "lint-staged:style": "stylelint --syntax less",
+    "format": "prettier --write"
   },
   "lint-staged": {
     "src/**/*.{ts}": [
-      "lint-staged:ts"
+      "format",
+      "lint-staged:ts",
+      "git add"
     ],
     "src/**/*.less": [
-      "lint-staged:style"
+      "format",
+      "lint-staged:style",
+      "git add"
     ]
   },
   "pre-commit": "lint-staged",
@@ -54,7 +59,9 @@
     "postcss-loader": "^2.1.0",
     "postcss-url": "^7.3.0",
     "rimraf": "^2.6.2",
+    "stylelint": "^8.4.0",
     "ts-loader": "^3.4.0",
+    "tslint": "^5.9.1",
     "tslint-eslint-rules": "^4.1.1",
     "typescript": "^2.7.1",
     "url-loader": "^0.6.2",
