@@ -1,16 +1,20 @@
 {
   "name": "vue-ts-starter",
   "version": "1.0.0",
-  "description": "vue typescript starter boilerplate",
+  "description": "A Vue.js starter boilerplate with typescript",
   "main": "index.js",
   "repository": "ssh://git@www.git.com:10022/wuxueqian/vue-ts-starter.git",
   "author": "wuxueqian <wuxueqian@meituan.com>",
   "license": "MIT",
   "scripts": {
-    "dll": "cross-env NODE_ENV=production webpack -p --hide-modules --config build/dll.conf.babel.js",
-    "dll:dev": "cross-env NODE_ENV=development webpack --hide-modules --config build/dll.conf.babel.js",
-    "build": "rimraf dist && mkdirp dist && cross-env NODE_ENV=production npm run dll && cross-env NODE_ENV=production webpack -p --progress --hide-modules --config build/prod.conf.babel.js",
-    "build:dev": "rimraf dist && mkdirp dist && cross-env NODE_ENV=development npm run dll:dev && webpack --progress --hide-modules --config build/dev.conf.babel.js",
+    "dll":
+      "cross-env NODE_ENV=production webpack -p --hide-modules --config build/dll.conf.babel.js",
+    "dll:dev":
+      "cross-env NODE_ENV=development webpack --hide-modules --config build/dll.conf.babel.js",
+    "build":
+      "rimraf dist && mkdirp dist && cross-env NODE_ENV=production npm run dll && cross-env NODE_ENV=production webpack -p --progress --hide-modules --config build/prod.conf.babel.js",
+    "build:dev":
+      "rimraf dist && mkdirp dist && cross-env NODE_ENV=development npm run dll:dev && webpack --progress --hide-modules --config build/dev.conf.babel.js",
     "analyze": "rimraf dist && mkdirp dist && cross-env ANALYZE_ENV=true npm run build",
     "dev": "npm run build:dev && webpack-dev-server --config build/dev.conf.babel.js",
     "lint": "npm run lint:ts && npm run lint:style",
@@ -21,12 +25,8 @@
     "lint-staged:style": "stylelint --syntax less"
   },
   "lint-staged": {
-    "src/**/*.{ts}": [
-      "lint-staged:ts"
-    ],
-    "src/**/*.less": [
-      "lint-staged:style"
-    ]
+    "src/**/*.{ts}": ["lint-staged:ts"],
+    "src/**/*.less": ["lint-staged:style"]
   },
   "pre-commit": "lint-staged",
   "devDependencies": {
@@ -68,5 +68,10 @@
     "babel-polyfill": "^6.26.0",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1"
-  }
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
 }
