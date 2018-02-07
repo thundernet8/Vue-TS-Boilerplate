@@ -38,6 +38,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
+    "copy-webpack-plugin": "^4.3.1",
     "cross-env": "^5.1.3",
     "css-loader": "^0.28.9",
     "customized-progress-webpack-plugin": "^0.0.3",

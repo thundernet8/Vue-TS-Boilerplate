@@ -101,7 +101,7 @@ export default class MyComponent extends Vue {
 
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: "Welcome to Your Vue.js App with TypeScript"
     };
   }
 }

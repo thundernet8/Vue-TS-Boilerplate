@@ -1,7 +1,7 @@
 import path from "path";
 import webpack from "webpack";
 import SimpleProgressWebpackPlugin from "customized-progress-webpack-plugin";
-// import CopyWebpackPlugin from "copy-webpack-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import pkg from "../package.json";
 
@@ -19,10 +19,7 @@ const getPlugins = function(morePlugins) {
     ),
     new webpack.HashedModuleIdsPlugin(),
     new SimpleProgressWebpackPlugin({ format: "compact" }),
-    // new CopyWebpackPlugin([
-    //   { from: "src/favicon.ico", to: path.resolve(__dirname, "../dist") },
-    //   { from: "src/robots.txt", to: path.resolve(__dirname, "../dist") }
-    // ]),
+    new CopyWebpackPlugin([{ from: "src/favicon.ico", to: path.resolve(__dirname, "../dist") }]),
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require("../.dll/manifest.json")
@@ -32,6 +29,15 @@ const getPlugins = function(morePlugins) {
     }),
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, "../dist/index.html"),
+      template: "src/index.html",
+      inject: true,
+      vendersName: vendersConfig.venders.js,
+      meta: "",
+      htmlDom: "",
+      state: ""
+    }),
+    new HtmlWebpackPlugin({
+      filename: path.resolve(__dirname, "../dist/index.ejs"),
       template: "src/index.html",
       inject: true,
       vendersName: vendersConfig.venders.js,
