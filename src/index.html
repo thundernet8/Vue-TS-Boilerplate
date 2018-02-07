@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>my-project</title>
+    <%= htmlWebpackPlugin.options.meta %>
+</head>
+
+<body>
+    <div id="app">
+        <%= htmlWebpackPlugin.options.htmlDom %>
+    </div>
+    <script src="<%= htmlWebpackPlugin.options.vendersName %>"></script>
+    <%= htmlWebpackPlugin.options.state %>
+        <!-- built files will be auto injected -->
+</body>
+
+</html>
