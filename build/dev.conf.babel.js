@@ -1,6 +1,9 @@
 import path from "path";
 import webpack from "webpack";
 import baseConf from "./base.conf.babel";
+import utils from "./utils";
+import buildConfig from "../config";
+import FriendlyErrorsPlugin from "friendly-errors-webpack-plugin";
 
 const plugins = [
   new webpack.DefinePlugin({
@@ -8,7 +11,18 @@ const plugins = [
       NODE_ENV: JSON.stringify("development")
     }
   }),
-  new webpack.HotModuleReplacementPlugin()
+  new webpack.HotModuleReplacementPlugin(),
+  // Add FriendlyErrorsPlugin
+  new FriendlyErrorsPlugin({
+    compilationSuccessInfo: {
+      messages: [
+        `Your application is running here: http://${buildConfig.dev.devServer.host}:${
+          buildConfig.dev.devServer.port
+        }`
+      ]
+    },
+    onErrors: utils.createNotifierCallback()
+  })
 ];
 
 const loaders = [
@@ -49,14 +63,15 @@ config.output = output;
 config.devServer = {
   contentBase: path.resolve(__dirname, "../dist"),
   compress: true,
-  host: "localhost",
-  port: 9001,
+  host: buildConfig.dev.devServer.host,
+  port: buildConfig.dev.devServer.port,
   hot: true,
-  open: true,
+  open: false,
+  quiet: true, // necessary for FriendlyErrorsPlugin
   historyApiFallback: {
     index: "index.html"
   }
-  // openPage: "layout.htm"
+  // openPage: "index.html"
   // publicPath: "http://localhost:9001/"
 };
 

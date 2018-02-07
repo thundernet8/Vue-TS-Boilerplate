@@ -3,7 +3,7 @@ const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const packageConfig = require("../package.json");
 
-exports.cssLoaders = function(options) {
+const cssLoaders = function(options) {
   options = options || {};
 
   const cssLoader = {
@@ -58,7 +58,7 @@ exports.cssLoaders = function(options) {
 };
 
 // Generate loaders for standalone style files (outside of .vue)
-exports.styleLoaders = function(options) {
+const styleLoaders = function(options) {
   const output = [];
   const loaders = exports.cssLoaders(options);
 
@@ -73,7 +73,7 @@ exports.styleLoaders = function(options) {
   return output;
 };
 
-exports.createNotifierCallback = () => {
+const createNotifierCallback = () => {
   const notifier = require("node-notifier");
 
   return (severity, errors) => {
@@ -89,4 +89,10 @@ exports.createNotifierCallback = () => {
       icon: path.join(__dirname, "logo.png")
     });
   };
+};
+
+export default {
+  cssLoaders,
+  styleLoaders,
+  createNotifierCallback
 };

@@ -84,7 +84,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+import Component from "vue-class-component";
+import Vue from "vue";
 // export default {
 //     name: "HelloWorld",
 //     data() {
@@ -97,7 +98,6 @@ import { Vue, Component } from "vue-property-decorator";
 @Component
 export default class MyComponent extends Vue {
   name = "HelloWorld";
-  // @Prop() msg = "";
 
   data() {
     return {

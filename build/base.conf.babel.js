@@ -1,6 +1,5 @@
 import path from "path";
 import webpack from "webpack";
-import SimpleProgressWebpackPlugin from "customized-progress-webpack-plugin";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import pkg from "../package.json";
@@ -18,7 +17,6 @@ const getPlugins = function(morePlugins) {
       }\n@version   v${pkg.version}\n@author    ${pkg.author}\n`
     ),
     new webpack.HashedModuleIdsPlugin(),
-    new SimpleProgressWebpackPlugin({ format: "compact" }),
     new CopyWebpackPlugin([{ from: "src/favicon.ico", to: path.resolve(__dirname, "../dist") }]),
     new webpack.DllReferencePlugin({
       context: __dirname,
