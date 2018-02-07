@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <router-link to="page1">First Page</router-link>
     <h2>Essential Links</h2>
     <ul>
       <li>
@@ -96,7 +97,7 @@ import Vue from "vue";
 // };
 
 @Component
-export default class MyComponent extends Vue {
+export default class HelloWorld extends Vue {
   name = "HelloWorld";
 
   data() {
