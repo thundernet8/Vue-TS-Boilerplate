@@ -7,16 +7,17 @@
 </template>
 
 <script lang="ts">
-import Component from "vue-class-component";
-import Vue from "vue";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
 const img = require("@/assets/images/logo.png");
 
 @Component
 export default class FirstPage extends Vue {
+  @Prop() prop1: string;
+
   data() {
     return {
-      msg: "This is your first page",
+      msg: "This is your first page" + this.prop1,
       img
     };
   }
