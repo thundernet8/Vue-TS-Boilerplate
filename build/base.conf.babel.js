@@ -64,17 +64,24 @@ const getRules = function(moreRules) {
       options: vueLoaderConfig
     },
     {
-      test: /\.js$/,
+      test: /\.jsx?$/,
       loader: "babel-loader",
       exclude: /node_modules/
     },
     {
-      test: /\.ts$/,
-      loader: "ts-loader",
-      exclude: /node_modules/,
-      options: {
-        appendTsSuffixTo: [/\.vue$/]
-      }
+      test: /\.tsx?$/,
+      use: [
+        {
+          loader: "babel-loader"
+        },
+        {
+          loader: "ts-loader",
+          options: {
+            appendTsSuffixTo: [/\.vue$/]
+          }
+        }
+      ],
+      exclude: /node_modules/
     },
     {
       test: /\.json$/,
@@ -110,7 +117,7 @@ const getRules = function(moreRules) {
 export default function(morePlugins, moreRules) {
   let config = {
     entry: {
-      app: "./src/index.ts"
+      app: "./src/index.tsx"
     },
     node: {
       // prevent webpack from injecting useless setImmediate polyfill because Vue

@@ -4,10 +4,10 @@
     "strictNullChecks": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
-    "module": "es2015",
+    "module": "es6",
     "moduleResolution": "node",
-    "target": "es5",
-    "lib": ["dom", "es2015", "es7"],
+    "target": "es6",
+    "lib": ["dom", "es6", "es7"],
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "typeRoots": ["node_modules/@types", "typings"],
@@ -15,7 +15,8 @@
     "paths": {
       "@": ["./src"]
     },
-    "allowJs": false
+    "allowJs": false,
+    "jsx": "preserve"
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.spec.ts?"]
