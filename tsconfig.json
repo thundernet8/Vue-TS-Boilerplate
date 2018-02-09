@@ -6,7 +6,7 @@
     "noUnusedLocals": true,
     "module": "es6",
     "moduleResolution": "node",
-    "target": "es6",
+    "target": "es5",
     "lib": ["dom", "es6", "es7"],
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,

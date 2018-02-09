@@ -2,7 +2,9 @@ import path from "path";
 import webpack from "webpack";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 import OptimizeCssAssetsPlugin from "optimize-css-assets-webpack-plugin";
+import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 import baseConf from "./base.conf.babel";
+import utils from "./utils";
 
 const plugins = [
   new webpack.DefinePlugin({
@@ -10,9 +12,14 @@ const plugins = [
       NODE_ENV: JSON.stringify("production")
     }
   }),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: { warnings: false },
-    sourceMap: true
+  new UglifyJsPlugin({
+    uglifyOptions: {
+      compress: {
+        warnings: false
+      }
+    },
+    sourceMap: true,
+    parallel: true
   }),
   new ExtractTextPlugin({
     filename: "css/app.[contenthash:8].css",
@@ -24,7 +31,17 @@ const plugins = [
     cssProcessor: require("cssnano"), // eslint-disable-line global-require
     cssProcessorOptions: { discardComments: { removeAll: true } },
     canPrint: true
-  })
+  }),
+  // extract webpack runtime and module manifest to its own file in order to
+  // prevent vendor hash from being updated whenever app bundle is updated
+  new webpack.optimize.CommonsChunkPlugin({
+    name: "manifest",
+    minChunks: Infinity
+  }),
+  // keep module.id stable when vendor modules does not change
+  new webpack.HashedModuleIdsPlugin(),
+  // enable scope hoisting
+  new webpack.optimize.ModuleConcatenationPlugin()
 ];
 
 const loaders = [
@@ -62,7 +79,13 @@ const loaders = [
         "css-loader?modules&sourceMap&importLoaders=1&localIdentName=__[hash:base64:5]!postcss-loader!less-loader"
     })
   }
-];
+].concat(
+  utils.styleLoaders({
+    sourceMap: true,
+    extract: true,
+    usePostCSS: true
+  })
+);
 
 const output = {
   path: path.resolve(__dirname, "../dist/assets"),

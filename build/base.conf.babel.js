@@ -16,14 +16,10 @@ const getPlugins = function(morePlugins) {
         pkg.name
       }\n@version   v${pkg.version}\n@author    ${pkg.author}\n`
     ),
-    new webpack.HashedModuleIdsPlugin(),
     new CopyWebpackPlugin([{ from: "src/favicon.ico", to: path.resolve(__dirname, "../dist") }]),
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require("../.dll/manifest.json")
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "manifest"
     }),
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, "../dist/index.html"),

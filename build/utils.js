@@ -60,7 +60,7 @@ const cssLoaders = function(options) {
 // Generate loaders for standalone style files (outside of .vue)
 const styleLoaders = function(options) {
   const output = [];
-  const loaders = exports.cssLoaders(options);
+  const loaders = cssLoaders(options);
 
   for (const extension in loaders) {
     const loader = loaders[extension];

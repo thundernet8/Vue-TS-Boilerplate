@@ -14,5 +14,6 @@ export default {
     source: "src",
     img: "src",
     image: "xlink:href"
-  }
+  },
+  esModule: true //https://github.com/vuejs/vue-loader/blob/master/docs/en/options.md#esmodule
 };
