@@ -8,10 +8,8 @@
     "license": "MIT",
     "scripts": {
         "dll": "cross-env NODE_ENV=production webpack -p --hide-modules --config build/dll.conf.js",
-        "build":
-            "rimraf dist && mkdirp dist && cross-env NODE_ENV=production npm run dll && cross-env NODE_ENV=production webpack -p --progress --hide-modules --config build/prod.conf.js",
-        "build:dev":
-            "rimraf dist && mkdirp dist && webpack --progress --hide-modules --config build/dev.conf.js",
+        "build": "rimraf dist && mkdirp dist && cross-env NODE_ENV=production npm run dll && cross-env NODE_ENV=production webpack -p --progress --hide-modules --config build/prod.conf.js",
+        "build:dev": "rimraf dist && mkdirp dist && webpack --progress --hide-modules --config build/dev.conf.js",
         "analyze": "rimraf dist && mkdirp dist && cross-env ANALYZE_ENV=true npm run build",
         "dev": "npm run build:dev && webpack-dev-server --config build/dev.conf.js",
         "lint": "npm run lint:ts && npm run lint:style",
@@ -23,8 +21,16 @@
         "format": "prettier --write"
     },
     "lint-staged": {
-        "src/**/*.{ts}": ["format", "lint-staged:ts", "git add"],
-        "src/**/*.less": ["format", "lint-staged:style", "git add"]
+        "src/**/*.{ts}": [
+            "format",
+            "lint-staged:ts",
+            "git add"
+        ],
+        "src/**/*.less": [
+            "format",
+            "lint-staged:style",
+            "git add"
+        ]
     },
     "pre-commit": "lint-staged",
     "devDependencies": {
@@ -45,6 +51,8 @@
         "extract-text-webpack-plugin": "^3.0.2",
         "friendly-errors-webpack-plugin": "^1.6.1",
         "html-webpack-plugin": "^2.30.1",
+        "less": "^2.7.3",
+        "less-loader": "^4.0.5",
         "mkdirp": "^0.5.1",
         "node-notifier": "^5.2.1",
         "optimize-css-assets-webpack-plugin": "^3.2.0",
@@ -52,6 +60,7 @@
         "postcss-loader": "^2.1.0",
         "postcss-url": "^7.3.0",
         "rimraf": "^2.6.2",
+        "style-loader": "^0.20.1",
         "stylelint": "^8.4.0",
         "ts-loader": "^3.4.0",
         "tslint": "^5.9.1",
@@ -77,5 +86,9 @@
         "node": ">= 6.0.0",
         "npm": ">= 3.0.0"
     },
-    "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
 }
