@@ -5,6 +5,7 @@ const isProduction = process.env.NODE_ENV === "production";
 module.exports = {
     loaders: utils.cssLoaders({
         sourceMap: true,
+        usePostCSS: true,
         extract: isProduction
     }),
     cssSourceMap: true,
