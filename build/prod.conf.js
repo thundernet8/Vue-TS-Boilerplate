@@ -13,6 +13,10 @@ const plugins = [
             NODE_ENV: JSON.stringify("production")
         }
     }),
+    new webpack.DllReferencePlugin({
+        context: __dirname,
+        manifest: require("../.dll/manifest.json")
+    }),
     new UglifyJsPlugin({
         uglifyOptions: {
             compress: {

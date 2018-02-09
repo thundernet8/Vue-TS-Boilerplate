@@ -6,8 +6,10 @@ const pkg = require("../package.json");
 
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
-const vendersConfig = require("../.dll/venders-config.json");
 const vueLoaderConfig = require("./vue-loader.conf");
+
+const isProduction = process.env.NODE_ENV === "production";
+const venders = isProduction ? `<script src="${vendersConfig.venders.js}"></script>` : "";
 
 let plugins = [
     new webpack.BannerPlugin(
@@ -16,15 +18,11 @@ let plugins = [
         }\n@version   v${pkg.version}\n@author    ${pkg.author}\n`
     ),
     new CopyWebpackPlugin([{ from: "src/favicon.ico", to: path.resolve(__dirname, "../dist") }]),
-    new webpack.DllReferencePlugin({
-        context: __dirname,
-        manifest: require("../.dll/manifest.json")
-    }),
     new HtmlWebpackPlugin({
         filename: path.resolve(__dirname, "../dist/index.html"),
         template: "src/index.html",
         inject: true,
-        vendersName: vendersConfig.venders.js,
+        venders,
         meta: "",
         htmlDom: "",
         state: ""
@@ -33,7 +31,7 @@ let plugins = [
         filename: path.resolve(__dirname, "../dist/index.ejs"),
         template: "src/index.html",
         inject: true,
-        vendersName: vendersConfig.venders.js,
+        venders,
         meta: "<%- meta %>",
         htmlDom: "<%- markup %>",
         state: "<script>window.__INITIAL_STATE__ = <%- initialState %></script>"
