@@ -16,7 +16,8 @@
       "@": ["./src"]
     },
     "allowJs": false,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "jsxFactory": "h"
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.spec.ts?"]

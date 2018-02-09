@@ -1,5 +1,6 @@
 import path from "path";
 import webpack from "webpack";
+import merge from "webpack-merge";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 import OptimizeCssAssetsPlugin from "optimize-css-assets-webpack-plugin";
 import UglifyJsPlugin from "uglifyjs-webpack-plugin";
@@ -44,7 +45,7 @@ const plugins = [
   new webpack.optimize.ModuleConcatenationPlugin()
 ];
 
-const loaders = [
+const rules = [
   {
     test: /\.css$/,
     include: [/global/, /node_modules/],
@@ -87,14 +88,17 @@ const loaders = [
   })
 );
 
-const output = {
-  path: path.resolve(__dirname, "../dist/assets"),
-  publicPath: "/assets/",
-  filename: "js/[name].[chunkhash:8].js",
-  chunkFilename: "js/[name].[chunkhash:8].chunk.js"
+const extConf = {
+  output: {
+    path: path.resolve(__dirname, "../dist/assets"),
+    publicPath: "/assets/",
+    filename: "js/[name].[chunkhash:8].js",
+    chunkFilename: "js/[name].[chunkhash:8].chunk.js"
+  },
+  module: {
+    rules
+  },
+  plugins
 };
 
-let config = baseConf(plugins, loaders);
-config.output = output;
-
-export default config;
+export default merge(baseConf, extConf);

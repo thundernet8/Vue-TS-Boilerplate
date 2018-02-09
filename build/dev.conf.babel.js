@@ -1,5 +1,6 @@
 import path from "path";
 import webpack from "webpack";
+import merge from "webpack-merge";
 import baseConf from "./base.conf.babel";
 import utils from "./utils";
 import buildConfig from "../config";
@@ -25,7 +26,7 @@ const plugins = [
   })
 ];
 
-const loaders = [
+const rules = [
   {
     test: /\.css$/,
     include: [/global/, /node_modules/],
@@ -50,29 +51,32 @@ const loaders = [
   }
 ];
 
-const output = {
-  path: path.resolve(__dirname, "../dist/assets"),
-  publicPath: "/assets/",
-  filename: "js/[name].js",
-  chunkFilename: "js/[name].chunk.js"
-};
-
-let config = baseConf(plugins, loaders);
-config.devtool = "#source-map"; // '#eval-source-map'
-config.output = output;
-config.devServer = {
-  contentBase: path.resolve(__dirname, "../dist"),
-  compress: true,
-  host: buildConfig.dev.devServer.host,
-  port: buildConfig.dev.devServer.port,
-  hot: true,
-  open: false,
-  quiet: true, // necessary for FriendlyErrorsPlugin
-  historyApiFallback: {
-    index: "index.html"
+const extConf = {
+  devtool: "#source-map",
+  output: {
+    path: path.resolve(__dirname, "../dist/assets"),
+    publicPath: "/assets/",
+    filename: "js/[name].js",
+    chunkFilename: "js/[name].chunk.js"
+  },
+  module: {
+    rules
+  },
+  plugins,
+  devServer: {
+    contentBase: path.resolve(__dirname, "../dist"),
+    compress: true,
+    host: buildConfig.dev.devServer.host,
+    port: buildConfig.dev.devServer.port,
+    hot: true,
+    open: false,
+    quiet: true, // necessary for FriendlyErrorsPlugin
+    historyApiFallback: {
+      index: "index.html"
+    }
+    // openPage: "index.html"
+    // publicPath: "http://localhost:9001/"
   }
-  // openPage: "index.html"
-  // publicPath: "http://localhost:9001/"
 };
 
-export default config;
+export default merge(baseConf, extConf);

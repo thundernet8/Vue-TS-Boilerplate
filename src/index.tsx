@@ -11,8 +11,8 @@ new Vue({
   el: "#app",
   router,
   components: { App },
-  // template: "<App />"
-  render() {
-    return <App />;
-  }
+  template: "<App />"
+  // render() {
+  //   return <App />;
+  // }
 });
