@@ -7,6 +7,7 @@ const pkg = require("../package.json");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const vueLoaderConfig = require("./vue-loader.conf");
+const vendersConfig = require("../.dll/venders-config.json");
 
 const isProduction = process.env.NODE_ENV === "production";
 const venders = isProduction ? `<script src="${vendersConfig.venders.js}"></script>` : "";
