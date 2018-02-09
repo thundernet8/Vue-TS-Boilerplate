@@ -1,19 +1,19 @@
 "use strict";
-import utils from "./utils";
+const utils = require("./utils");
 const isProduction = process.env.NODE_ENV === "production";
 
-export default {
-  loaders: utils.cssLoaders({
-    sourceMap: true,
-    extract: isProduction
-  }),
-  cssSourceMap: true,
-  cacheBusting: true,
-  transformToRequire: {
-    video: ["src", "poster"],
-    source: "src",
-    img: "src",
-    image: "xlink:href"
-  },
-  esModule: true //https://github.com/vuejs/vue-loader/blob/master/docs/en/options.md#esmodule
+module.exports = {
+    loaders: utils.cssLoaders({
+        sourceMap: true,
+        extract: isProduction
+    }),
+    cssSourceMap: true,
+    cacheBusting: true,
+    transformToRequire: {
+        video: ["src", "poster"],
+        source: "src",
+        img: "src",
+        image: "xlink:href"
+    },
+    esModule: true //https://github.com/vuejs/vue-loader/blob/master/docs/en/options.md#esmodule
 };
