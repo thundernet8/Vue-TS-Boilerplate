@@ -13,6 +13,8 @@ const plugins = [
         }
     }),
     new webpack.HotModuleReplacementPlugin(),
+    // Log hot updated module path
+    new webpack.NamedModulesPlugin(),
     // Add FriendlyErrorsPlugin
     new FriendlyErrorsPlugin({
         compilationSuccessInfo: {

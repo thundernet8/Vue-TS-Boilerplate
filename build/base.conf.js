@@ -27,16 +27,17 @@ let plugins = [
         meta: "",
         htmlDom: "",
         state: ""
-    }),
-    new HtmlWebpackPlugin({
-        filename: path.resolve(__dirname, "../dist/index.ejs"),
-        template: "src/index.html",
-        inject: true,
-        venders,
-        meta: "<%- meta %>",
-        htmlDom: "<%- markup %>",
-        state: "<script>window.__INITIAL_STATE__ = <%- initialState %></script>"
     })
+    // SSR Template
+    // new HtmlWebpackPlugin({
+    //     filename: path.resolve(__dirname, "../dist/index.ejs"),
+    //     template: "src/index.html",
+    //     inject: true,
+    //     venders,
+    //     meta: "<%- meta %>",
+    //     htmlDom: "<%- markup %>",
+    //     state: "<script>window.__INITIAL_STATE__ = <%- initialState %></script>"
+    // })
 ];
 
 if (!!process.env.ANALYZE_ENV) {
