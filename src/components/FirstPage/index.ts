@@ -9,6 +9,7 @@ declare module "vue/types/vue" {
 
 interface IFirstPage extends Vue {
     msg: string;
+    img: string;
     say(): void;
 }
 

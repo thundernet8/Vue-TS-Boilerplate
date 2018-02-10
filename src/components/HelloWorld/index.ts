@@ -8,6 +8,7 @@ declare module "vue/types/vue" {
 }
 
 interface IHelloWorld extends Vue {
+    msg: string;
     hello: () => void;
 }
 

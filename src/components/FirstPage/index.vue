@@ -19,13 +19,13 @@ interface IMethods {}
 interface IComputed {}
 
 interface IProps {
-    props1: Number;
+    count: Number;
 }
 
 export default Vue.extend<IData, IMethods, IComputed, IProps>({
     name: "FirstPage",
     props: {
-        props1: {
+        count: {
             type: Number
         }
     },
@@ -36,11 +36,12 @@ export default Vue.extend<IData, IMethods, IComputed, IProps>({
         };
     },
     methods: {
-        abc() {}
+        say() {
+            console.log(this.msg);
+        }
     },
     mounted() {
         console.log("mounted");
-        console.log(this);
     }
 });
 </script>

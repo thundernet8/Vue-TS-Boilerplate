@@ -105,6 +105,10 @@ export default class HelloWorld extends Vue {
             msg: "Welcome to Your Vue.js App with TypeScript"
         };
     }
+
+    hello() {
+        console.log("hello");
+    }
 }
 </script>
 
