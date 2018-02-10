@@ -1,5 +1,5 @@
 {
-    "name": "vue-ts-starter",
+    "name": "vue-ts-boilerplate",
     "version": "1.0.0",
     "description": "A Vue.js starter boilerplate with typescript",
     "main": "index.js",
@@ -8,8 +8,10 @@
     "license": "MIT",
     "scripts": {
         "dll": "cross-env NODE_ENV=production webpack -p --hide-modules --config build/dll.conf.js",
-        "build": "rimraf dist && mkdirp dist && cross-env NODE_ENV=production npm run dll && cross-env NODE_ENV=production webpack -p --progress --hide-modules --config build/prod.conf.js",
-        "build:dev": "rimraf dist && mkdirp dist && webpack --progress --hide-modules --config build/dev.conf.js",
+        "build":
+            "rimraf dist && mkdirp dist && cross-env NODE_ENV=production npm run dll && cross-env NODE_ENV=production webpack -p --progress --hide-modules --config build/prod.conf.js",
+        "build:dev":
+            "rimraf dist && mkdirp dist && webpack --progress --hide-modules --config build/dev.conf.js",
         "analyze": "rimraf dist && mkdirp dist && cross-env ANALYZE_ENV=true npm run build",
         "dev": "npm run build:dev && webpack-dev-server --config build/dev.conf.js",
         "lint": "npm run lint:ts && npm run lint:style",
@@ -21,16 +23,8 @@
         "format": "prettier --write"
     },
     "lint-staged": {
-        "src/**/*.{ts}": [
-            "format",
-            "lint-staged:ts",
-            "git add"
-        ],
-        "src/**/*.less": [
-            "format",
-            "lint-staged:style",
-            "git add"
-        ]
+        "src/**/*.{ts}": ["format", "lint-staged:ts", "git add"],
+        "src/**/*.less": ["format", "lint-staged:style", "git add"]
     },
     "pre-commit": "lint-staged",
     "devDependencies": {
@@ -86,9 +80,5 @@
         "node": ">= 6.0.0",
         "npm": ">= 3.0.0"
     },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not ie <= 8"
-    ]
+    "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
 }

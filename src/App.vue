@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/images/logo.png">
-    <router-view :prop1="1"/>
+    <router-view :propMessage="msg"/>
   </div>
 </template>
 
@@ -9,7 +9,10 @@
 require("./assets/styles/main.less");
 
 export default {
-    name: "App"
+    name: "App",
+    data() {
+        msg: "Prop Message";
+    }
 };
 </script>
 

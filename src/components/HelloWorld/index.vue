@@ -87,6 +87,7 @@
 <script lang="ts">
 import Component from "vue-class-component";
 import Vue from "vue";
+import ImageBox from "../ImageBox";
 // export default {
 //     name: "HelloWorld",
 //     data() {
@@ -96,18 +97,30 @@ import Vue from "vue";
 //     }
 // };
 
-@Component
+@Component({
+    props: {
+        propMessage: String
+    }
+})
 export default class HelloWorld extends Vue {
     name = "HelloWorld";
 
-    data() {
-        return {
-            msg: "Welcome to Your Vue.js App with TypeScript"
-        };
+    // initial data
+    msg = "Welcome to Your Vue.js App with TypeScript";
+
+    // lifecycle hook
+    mounted() {
+        this.hello();
     }
 
+    // computed
+    get computedMsg() {
+        return "computed " + this.msg;
+    }
+
+    // method
     hello() {
-        console.log("hello");
+        console.log("hello, " + this.msg);
     }
 }
 </script>

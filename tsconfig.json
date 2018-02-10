@@ -10,6 +10,7 @@
         "lib": ["dom", "es6", "es7"],
         "experimentalDecorators": true,
         "allowSyntheticDefaultImports": true,
+        "emitDecoratorMetadata": true,
         "typeRoots": ["node_modules/@types", "typings"],
         "baseUrl": "./src",
         "paths": {

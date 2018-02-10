@@ -12,23 +12,23 @@ import Vue from "vue";
 
 const img = require("@/assets/images/logo.png");
 
-interface IData {}
+export interface IData {
+    msg: string;
+    img: string;
+}
 
-interface IMethods {}
+export interface IMethods {
+    say(): void;
+}
 
 interface IComputed {}
 
 interface IProps {
-    count: Number;
+    propMessage: String;
 }
 
 export default Vue.extend<IData, IMethods, IComputed, IProps>({
     name: "FirstPage",
-    props: {
-        count: {
-            type: Number
-        }
-    },
     data() {
         return {
             msg: "This is the first page!",
