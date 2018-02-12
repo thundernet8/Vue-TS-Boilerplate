@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <router-link to="/">Back to Home</router-link>
+    <anyslot is="router-link" to="/">Backtohome</anyslot>
     <img :src="img" >
   </div>
 </template>
