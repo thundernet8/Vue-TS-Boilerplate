@@ -9,9 +9,14 @@ declare module "vue/types/vue" {
     interface Vue {}
 }
 
+interface IProps {
+    propMessage: string;
+}
+
 interface IHelloWorld extends Vue {
     msg: string;
     hello: () => void;
+    props: IProps;
 }
 
 export default HelloWorld as VueConstructor<IHelloWorld>;

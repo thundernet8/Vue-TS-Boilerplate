@@ -11,7 +11,9 @@ require("./assets/styles/main.less");
 export default {
     name: "App",
     data() {
-        msg: "Prop Message";
+        return {
+            msg: "Prop Message"
+        };
     }
 };
 </script>

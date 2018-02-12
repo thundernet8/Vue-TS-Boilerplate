@@ -757,6 +757,12 @@ babel-plugin-transform-vue-jsx@^3.5.1:
   dependencies:
     esutils "^2.0.2"
 
+babel-plugin-transform-vue-tsx@^3510.0.1:
+  version "3510.0.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vue-tsx/-/babel-plugin-transform-vue-tsx-3510.0.1.tgz#f7eb98bdc95ea23dd252d124945392643e68091b"
+  dependencies:
+    esutils "^2.0.2"
+
 babel-polyfill@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-polyfill/-/babel-polyfill-6.26.0.tgz#379937abc67d7895970adc621f284cd966cf2153"
@@ -6792,6 +6798,12 @@ vue-template-compiler@^2.5.13:
 vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
+
+vue-tsx-helper@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/vue-tsx-helper/-/vue-tsx-helper-0.1.2.tgz#a4d7027644c8abc1c9ec18bfaed2fffe55a4e901"
+  dependencies:
+    vue "^2.5.13"
 
 vue@^2.5.13:
   version "2.5.13"
