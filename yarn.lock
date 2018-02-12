@@ -757,9 +757,9 @@ babel-plugin-transform-vue-jsx@^3.5.1:
   dependencies:
     esutils "^2.0.2"
 
-babel-plugin-transform-vue-tsx@^3510.0.1:
-  version "3510.0.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vue-tsx/-/babel-plugin-transform-vue-tsx-3510.0.1.tgz#f7eb98bdc95ea23dd252d124945392643e68091b"
+babel-plugin-transform-vue-tsx@^3510.0.3:
+  version "3510.0.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-vue-tsx/-/babel-plugin-transform-vue-tsx-3510.0.3.tgz#809895b487a76210b09669f49bf9150ed8574644"
   dependencies:
     esutils "^2.0.2"
 
