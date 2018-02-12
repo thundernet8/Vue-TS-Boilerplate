@@ -30,7 +30,12 @@ npm run lint // 代码Lint
 
 ## Note
 
-两种方式写一个Vue组件
+三种方式写一个Vue组件
+
+## Component.vue
+
+这种方式仍沿用了Vue SFC，只是script部分的语法改成TypeScript，script内部能够利用一些TypeScript的静态类型检查优势，由于无法利用JSX语法，TypeScript无从检查template部分的数据和语法，且TSLint不支持vue文件
+
 
 ## Component.vue + Component.ts
 
@@ -62,7 +67,7 @@ export default HelloWorld as VueConstructor<IHelloWorld>;
 ```
 ## Component.tsx
 
-完全TSX语法，不使用vue SFC
+完全TSX语法，不使用vue SFC，需要引入[vue-tsx-helper](https://github.com/thundernet8/Vue-TSX-Helper)
 
 ```typescript
 // ComponentA
@@ -102,8 +107,9 @@ export default class TestComponent extends VueComponent<IProps> {
         );
     }
 }
+```
 
-
+```typescript
 // WrapComponent
 import { Component, Prop } from "vue-property-decorator";
 import { VueComponent } from "vue-tsx-helper";
