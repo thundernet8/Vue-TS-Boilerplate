@@ -30,7 +30,9 @@ npm run lint // 代码Lint
 
 ## Note
 
-Vue SFC 写法
+两种方式写一个Vue组件
+
+## Component.vue + Component.ts
 
 一般建立组件名为名称的文件夹，内部包含`index.vue`和`index.ts`两个文件，`index.vue`为原始 SFC 代码，`index.ts`主要为了方便其他组件引入并添加类型支持，例:
 
@@ -46,10 +48,85 @@ declare module "vue/types/vue" {
     interface Vue {}
 }
 
+interface IProps {
+    propMessage: string;
+}
+
 interface IHelloWorld extends Vue {
-    msg: string; // data
-    hello: () => void; // method
+    msg: string;
+    hello: () => void;
+    props: IProps;
 }
 
 export default HelloWorld as VueConstructor<IHelloWorld>;
+```
+## Component.tsx
+
+完全TSX语法，不使用vue SFC
+
+```typescript
+// ComponentA
+import { Component, Prop } from "vue-property-decorator";
+import { VueComponent } from "vue-tsx-helper";
+
+/**
+ * Vue component props types
+ */
+interface IProps {
+    msg: string;
+}
+
+const mixin = {
+    created() {
+        console.log("mixin created");
+    }
+};
+
+@Component({
+    name: "ComponentA",
+    mixins: [mixin]
+})
+export default class TestComponent extends VueComponent<IProps> {
+    @Prop() msg;
+
+    created() {
+        console.log("created");
+    }
+
+    render(h) {
+        return (
+            <div class="container">
+                {"parent message: " + this.msg}
+                {this.$slots.default}
+            </div>
+        );
+    }
+}
+
+
+// WrapComponent
+import { Component, Prop } from "vue-property-decorator";
+import { VueComponent } from "vue-tsx-helper";
+import ComponentA from "./ComponentA";
+
+/**
+ * Vue component props types
+ */
+interface IProps {}
+
+@Component
+export default class WrapComponent extends VueComponent<IProps> {
+    @Prop() msg;
+
+    render(h) {
+        return (
+            <ComponentA msg={"msg from parent"}>
+                <h2>Page writed without .vue but plain tsx</h2>
+                <anyslot is="router-link" to="/">
+                    Back to home
+                </anyslot>
+            </ComponentA>
+        );
+    }
+}
 ```
