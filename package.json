@@ -1,10 +1,10 @@
 {
     "name": "vue-ts-boilerplate",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A Vue.js starter boilerplate with typescript",
     "main": "index.js",
-    "repository": "ssh://git@www.git.com:10022/wuxueqian/vue-ts-starter.git",
-    "author": "wuxueqian <wuxueqian@meituan.com>",
+    "repository": "git@github.com:thundernet8/Vue-TS-Boilerplate.git",
+    "author": "wuxueqian <wuxueqian2010@hotmail.com>",
     "license": "MIT",
     "scripts": {
         "dll": "cross-env NODE_ENV=production webpack -p --hide-modules --config build/dll.conf.js",
@@ -85,7 +85,7 @@
         "babel-polyfill": "^6.26.0",
         "vue": "^2.5.13",
         "vue-router": "^3.0.1",
-        "vue-tsx-helper": "^0.1.2"
+        "vue-tsx-helper": "^0.1.3"
     },
     "engines": {
         "node": ">= 6.0.0",
