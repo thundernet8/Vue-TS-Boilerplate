@@ -6799,10 +6799,10 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue-tsx-helper@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/vue-tsx-helper/-/vue-tsx-helper-0.1.5.tgz#f0f3a16e27b66e143f6c3215735ea5494ce2e70b"
-  integrity sha512-GtqV8dhnRDftJeyGvdeDSC+y1RltRVYYCd8XvYrNQ5ufTBFgMXw1dT69iq0ocGoqH5y4WnZ+qhU5KJi6YKAJJA==
+vue-tsx-helper@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/vue-tsx-helper/-/vue-tsx-helper-0.1.6.tgz#eb3c7cae24430f14db486b8ecf258c76c4883071"
+  integrity sha512-bfwdkaPZ3/BnfZNct54O70X3Zr2SWhaqACnpgW9BHmrZpuFI+HUABsDkUT2d53jw3/4kGX2PmCLfdQmkNK1EGQ==
   dependencies:
     vue "^2.5.13"
 

@@ -18,7 +18,8 @@
         },
         "allowJs": false,
         "jsx": "preserve",
-        "jsxFactory": "h"
+        "jsxFactory": "h",
+        "noImplicitThis": true
     },
     "include": ["./src/**/*", "node_modules/vue-tsx-helper/lib/index.d.ts"],
     "exclude": ["node_modules", "dist", "**/*.spec.ts?"]
